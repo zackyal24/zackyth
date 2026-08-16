@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@layer base {
+  html, body {
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #fafafa;
+    color: #18181b;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Scroll snap container for Home page */
+.snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  min-height: 100vh;
+}
+
+
+/* Grayscale hover transition rule */
+.img-bw-hover {
+  filter: grayscale(100%) contrast(105%);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.img-bw-hover:hover {
+  filter: grayscale(0%) contrast(100%);
+}
