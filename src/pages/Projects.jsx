@@ -93,7 +93,7 @@ export default function Projects() {
                 className="w-full h-full"
               >
                 <img
-                  src="/img/projects/hero-image.jpeg"
+                  src={personalInfo.projectsImage}
                   alt="My Projects Journey"
                   className="w-full h-full object-cover img-bw-hover"
                 />

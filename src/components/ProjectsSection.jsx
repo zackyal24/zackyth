@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { highlightProject } from '../data/portfolioData';
+import { personalInfo } from '../data/portfolioData';
 
 export default function ProjectsSection({ isActive }) {
   return (
@@ -54,7 +54,7 @@ export default function ProjectsSection({ isActive }) {
               className="relative w-full aspect-[4/3] sm:aspect-[1/1] rounded-2xl overflow-hidden shadow-xl bg-zinc-200 border border-zinc-200"
             >
               <img
-                src="/img/projects/hero-image.jpeg"
+                src={personalInfo.projectsImage}
                 alt="My Projects"
                 className="w-full h-full object-cover img-bw-hover group-hover:scale-105 transition-transform duration-500"
               />

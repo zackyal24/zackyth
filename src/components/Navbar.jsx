@@ -27,9 +27,10 @@ export default function Navbar() {
           {/* Left Side: Reserved space for chevron so text never shifts */}
           <Link
             to={isHome ? "/" : backToPath}
-            state={{ restoreScroll: true }}
-            onClick={() => {
+            state={!isHome ? { restoreScroll: true } : undefined}
+            onClick={(e) => {
               if (isHome) {
+                e.preventDefault();
                 window.dispatchEvent(new CustomEvent('scrollToTop'));
               }
             }}
