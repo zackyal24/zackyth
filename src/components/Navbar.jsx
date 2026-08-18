@@ -10,7 +10,15 @@ export default function Navbar() {
   const navigate = useNavigate();
   const isHome = location.pathname === '/';
   const isProjectDetail = location.pathname.startsWith('/projects/');
-  const backToPath = isProjectDetail ? '/projects' : '/';
+  
+  let backToPath = '/';
+  if (isProjectDetail) {
+    backToPath = '/projects';
+  } else if (location.pathname === '/about') {
+    backToPath = '/#about';
+  } else if (location.pathname === '/projects') {
+    backToPath = '/#projects';
+  }
 
   return (
     <>
@@ -19,6 +27,7 @@ export default function Navbar() {
           {/* Left Side: Reserved space for chevron so text never shifts */}
           <Link
             to={isHome ? "/" : backToPath}
+            state={{ restoreScroll: true }}
             onClick={() => {
               if (isHome) {
                 window.dispatchEvent(new CustomEvent('scrollToTop'));

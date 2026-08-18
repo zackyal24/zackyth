@@ -3,7 +3,6 @@ import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import { ArrowRight, X, Maximize2, Info } from 'lucide-react';
 import { activities } from '../data/portfolioData';
 
-// Muted pastel colors for the activity containers
 const bgColors = [
   'bg-slate-200',
   'bg-green-100',
@@ -11,6 +10,43 @@ const bgColors = [
   'bg-blue-100',
   'bg-rose-100'
 ];
+
+// Carousel component for handling multiple images
+const CarouselImage = ({ images, title, className, showDetails = false }) => {
+  const [currentImgIndex, setCurrentImgIndex] = useState(0);
+
+  useEffect(() => {
+    if (images.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentImgIndex(prev => (prev + 1) % images.length);
+      }, 3000);
+      return () => clearInterval(interval);
+    }
+  }, [images.length]);
+
+  return (
+    <>
+      {images.map((imgSrc, i) => (
+        <img
+          key={i}
+          src={imgSrc}
+          alt={`${title} ${i + 1}`}
+          className={`${className} absolute inset-0 transition-opacity duration-1000 ${i === currentImgIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+        />
+      ))}
+      {images.length > 1 && !showDetails && (
+        <div className="absolute bottom-6 right-6 flex gap-2 z-30">
+          {images.map((_, i) => (
+            <div
+              key={i}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${i === currentImgIndex ? 'bg-white scale-125 shadow-md' : 'bg-white/50 hover:bg-white/70'}`}
+            />
+          ))}
+        </div>
+      )}
+    </>
+  );
+};
 
 // Inner component for each stacked card to handle its own scroll-linked animations
 const ActivityCard = ({ index, scrollY, vh, act, bgColor, showDetails, toggleDetails, setDetailsId, featuredId }) => {
@@ -26,25 +62,26 @@ const ActivityCard = ({ index, scrollY, vh, act, bgColor, showDetails, toggleDet
   const y = useTransform(scrollY, [startCover, endCover], [0, 50]);
 
   return (
-    <motion.div 
+    <motion.div
       style={{ scale, opacity, y }}
       layoutId={act.id === featuredId ? "hero-trigger" : undefined}
       onClick={(e) => toggleDetails(act.id, e)}
-      className={`relative w-full max-w-lg aspect-square rounded-[2.5rem] p-4 sm:p-6 cursor-pointer shadow-[0_20px_50px_-12px_rgba(0,0,0,0.3)] hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)] transition-shadow duration-500 overflow-hidden flex-shrink-0 ${bgColor}`}
+      className={`relative w-full max-w-lg aspect-[4/3] rounded-[2.5rem] p-4 sm:p-6 cursor-pointer shadow-[0_20px_50px_-12px_rgba(0,0,0,0.3)] hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.4)] transition-shadow duration-500 overflow-hidden flex-shrink-0 ${bgColor}`}
     >
       {/* Image Layer */}
-      <div className={`w-full h-full transition-all duration-700 ease-in-out ${showDetails ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
-        <img
-          src={act.image}
-          alt={act.title}
+      <div className={`relative w-full h-full transition-all duration-700 ease-in-out ${showDetails ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
+        <CarouselImage
+          images={act.gallery && act.gallery.length > 0 ? act.gallery : [act.image]}
+          title={act.title}
           className="w-full h-full object-cover rounded-2xl shadow-xl"
+          showDetails={showDetails}
         />
       </div>
 
       {/* Title text at bottom left (no background, sharp drop shadow) */}
       {!showDetails && (
         <div className="absolute bottom-6 left-6 sm:bottom-10 sm:left-10 flex flex-col items-start z-20 pointer-events-none">
-          <span 
+          <span
             className="text-base sm:text-lg lg:text-xl font-medium text-white max-w-[250px] sm:max-w-[300px] leading-snug tracking-wide"
             style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8), 0 1px 2px rgba(0,0,0,0.5)' }}
           >
@@ -62,7 +99,7 @@ const ActivityCard = ({ index, scrollY, vh, act, bgColor, showDetails, toggleDet
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="absolute inset-0 bg-white z-10 flex flex-col justify-center px-6 sm:px-10 py-8 cursor-pointer"
-            onClick={(e) => { e.stopPropagation(); setDetailsId(null); }} 
+            onClick={(e) => { e.stopPropagation(); setDetailsId(null); }}
           >
             <span className="text-xs font-mono text-zinc-400 uppercase tracking-widest mb-4 block">
               {act.date}
@@ -94,13 +131,13 @@ export default function ActivityList() {
     setVh(window.innerHeight);
     const handleResize = () => setVh(window.innerHeight);
     window.addEventListener('resize', handleResize);
-    
+
     if (isGalleryOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-    
+
     return () => {
       window.removeEventListener('resize', handleResize);
       document.body.style.overflow = 'unset';
@@ -122,11 +159,11 @@ export default function ActivityList() {
   const handleScroll = () => {
     if (!scrollRef.current) return;
     const currentScroll = scrollRef.current.scrollTop;
-    
+
     // Use Math.round so the active card switches as soon as it takes up >50% of the screen
     const activeIndex = Math.round(currentScroll / vh);
     const clampedIndex = Math.min(Math.max(activeIndex, 0), activities.length - 1);
-    
+
     const newActiveId = activities[clampedIndex].id;
     if (newActiveId !== activeId) {
       setActiveId(newActiveId);
@@ -140,7 +177,7 @@ export default function ActivityList() {
       {/* ================================================================= */}
       <div className="relative">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
-          
+
           <div className="w-full lg:w-1/2">
             <h3 className="text-4xl lg:text-5xl font-extrabold text-zinc-900 leading-[1.1] tracking-tight">
               My Activity
@@ -163,13 +200,15 @@ export default function ActivityList() {
             <motion.div
               layoutId="hero-trigger"
               onClick={() => setIsGalleryOpen(true)}
-              className="relative w-full aspect-square sm:aspect-[4/3] rounded-[2.5rem] overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 bg-slate-200 group flex items-center justify-center p-8 sm:p-12"
+              className="relative w-full aspect-[4/3] rounded-[2.5rem] overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 bg-slate-200 group flex items-center justify-center p-8 sm:p-12"
             >
-              <img
-                src={featured.image}
-                alt={featured.title}
-                className="w-full h-full object-cover rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-700"
-              />
+              <div className="relative w-full h-full rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-700 overflow-hidden">
+                <CarouselImage
+                  images={featured.gallery && featured.gallery.length > 0 ? featured.gallery : [featured.image]}
+                  title={featured.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <div className="absolute top-6 right-6 bg-white/50 backdrop-blur-md p-3 rounded-full text-zinc-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <Maximize2 className="w-5 h-5" />
               </div>
@@ -192,9 +231,9 @@ export default function ActivityList() {
           >
             {/* 1. FIXED UI LAYER */}
             <div className="absolute inset-0 z-20 pointer-events-none flex flex-col lg:flex-row">
-              
+
               <div className="w-full lg:w-5/12 p-6 sm:p-8 lg:pl-24 xl:pl-32 flex flex-col justify-center h-auto lg:h-full bg-white/90 lg:bg-transparent backdrop-blur-sm lg:backdrop-blur-none">
-                
+
                 <div className="flex flex-col gap-6 pointer-events-auto mt-[10vh] lg:mt-0 max-w-md">
                   {/* Title Row (Mobile Info Button attached here) */}
                   <div className="flex items-center justify-between w-full lg:w-auto">
@@ -202,19 +241,18 @@ export default function ActivityList() {
                       Activity Gallery
                     </h3>
                     {/* Only visible on mobile, since on desktop it moves to the right column */}
-                    <button 
+                    <button
                       onClick={toggleActiveDetails}
-                      className={`lg:hidden cursor-pointer p-3.5 rounded-full transition-all duration-300 border shadow-md flex-shrink-0 ${
-                        detailsId === activeId 
-                          ? 'bg-zinc-900 border-zinc-900 text-white scale-110' 
+                      className={`lg:hidden cursor-pointer p-3.5 rounded-full transition-all duration-300 border shadow-md flex-shrink-0 ${detailsId === activeId
+                          ? 'bg-zinc-900 border-zinc-900 text-white scale-110'
                           : 'bg-white border-zinc-200 text-zinc-700 hover:bg-zinc-50'
-                      }`}
+                        }`}
                       aria-label="Toggle Details"
                     >
                       <Info className="w-5 h-5" />
                     </button>
                   </div>
-                  
+
                   {/* Additional Description */}
                   <p className="text-sm sm:text-base lg:text-lg text-zinc-500 leading-relaxed hidden lg:block">
                     A curated collection of my recent activities and experiences. <br className="hidden xl:block" />
@@ -234,13 +272,12 @@ export default function ActivityList() {
 
               {/* Fixed Desktop Info Button - Centered in Right Column but Translated Left to sit next to the Image Box */}
               <div className="hidden lg:flex w-7/12 h-full items-center justify-center pointer-events-none">
-                <button 
+                <button
                   onClick={toggleActiveDetails}
-                  className={`cursor-pointer pointer-events-auto p-4 rounded-full transition-all duration-300 border shadow-xl flex-shrink-0 -translate-x-[310px] xl:-translate-x-[330px] ${
-                    detailsId === activeId 
-                      ? 'bg-zinc-900 border-zinc-900 text-white scale-110' 
+                  className={`cursor-pointer pointer-events-auto p-4 rounded-full transition-all duration-300 border shadow-xl flex-shrink-0 -translate-x-[310px] xl:-translate-x-[330px] ${detailsId === activeId
+                      ? 'bg-zinc-900 border-zinc-900 text-white scale-110'
                       : 'bg-white border-zinc-200 text-zinc-700 hover:bg-zinc-50'
-                  }`}
+                    }`}
                   aria-label="Toggle Details"
                 >
                   <Info className="w-6 h-6" />
@@ -258,7 +295,7 @@ export default function ActivityList() {
             </div>
 
             {/* 2. STACKED CAROUSEL SCROLL CONTAINER */}
-            <div 
+            <div
               ref={scrollRef}
               onScroll={handleScroll}
               className="absolute inset-0 w-full h-full overflow-y-auto no-scrollbar z-10 scroll-smooth"
@@ -268,14 +305,14 @@ export default function ActivityList() {
                 {activities.map((act, index) => (
                   // Each item takes 100vh. When scrolled, it sticks to top.
                   <div key={act.id} className={`w-full h-[100vh] sticky top-0 flex flex-col lg:flex-row ${detailsId === act.id ? 'z-50' : 'z-10'}`}>
-                    
+
                     {/* Left padding/spacer */}
                     <div className="hidden lg:block w-5/12" />
-                    
+
                     {/* Right column for the card - Centered so it's not too far right */}
                     <div className="w-full lg:w-7/12 h-full flex items-center justify-center p-6 pt-[12vh] lg:pt-6">
-                      
-                      <ActivityCard 
+
+                      <ActivityCard
                         index={index}
                         scrollY={scrollY}
                         vh={vh}

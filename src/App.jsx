@@ -1,5 +1,5 @@
-import React, { useState, useLayoutEffect, useRef } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import React, { useState, useLayoutEffect, useEffect, useRef } from 'react';
+import { Routes, Route, useLocation, useNavigationType } from 'react-router-dom';
 import { motion, LayoutGroup } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Preloader from './components/Preloader';
@@ -8,19 +8,46 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import ProjectDetail from './pages/ProjectDetail';
 
+const scrollPositions = {};
+
 export default function App() {
   const [loadingComplete, setLoadingComplete] = useState(false);
   const location = useLocation();
+  const navType = useNavigationType();
   const scrollRef = useRef(null);
+  const pathnameRef = useRef(location.pathname);
+  pathnameRef.current = location.pathname;
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const handleScroll = () => {
+      // Use the ref to ensure we always write to the currently active pathname,
+      // avoiding stale closures overwriting previous pathnames during transitions.
+      scrollPositions[pathnameRef.current] = el.scrollTop;
+    };
+    el.addEventListener('scroll', handleScroll, { passive: true });
+    return () => el.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useLayoutEffect(() => {
-    // Reset scroll on the scrollable container only if there's no hash
+    // Restore scroll position only if there's no hash
     if (scrollRef.current) {
       if (!location.hash) {
-        scrollRef.current.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        let savedPos = 0;
+        // Only restore scroll memory if the user is explicitly going "Back" 
+        // (either via browser back button 'POP' or our Navbar back button state)
+        if (navType === 'POP' || location.state?.restoreScroll) {
+          savedPos = scrollPositions[pathnameRef.current] || 0;
+        } else {
+          // Fresh navigation (e.g. clicking 'Explore Projects'): reset to top and clear memory
+          scrollPositions[pathnameRef.current] = 0;
+        }
+        
+        scrollRef.current.scrollTo({ top: savedPos, left: 0, behavior: 'instant' });
       }
     }
-  }, [location.pathname, location.hash]);
+  }, [location.pathname, location.hash, location.state, navType]);
 
   return (
     <LayoutGroup>

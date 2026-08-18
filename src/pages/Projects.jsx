@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { highlightProject, otherProjects, personalInfo } from '../data/portfolioData';
+import { highlightProject, projectsList, personalInfo } from '../data/portfolioData';
 import Sidebar from '../components/Sidebar';
 import { GithubIcon } from '../components/SocialIcons';
+import CTAAndFooter from '../components/CTAAndFooter';
 
 const fadeSlideUp = {
   hidden: { opacity: 0, y: 40 },
@@ -25,9 +26,13 @@ export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const categories = ['All', 'Web Development', 'Cloud Computing', 'Other'];
 
+  const allProjectsList = [...projectsList].sort((a, b) => {
+    return parseInt(b.year) - parseInt(a.year);
+  });
+
   const filteredProjects = selectedCategory === 'All'
-    ? otherProjects
-    : otherProjects.filter(p => p.category === selectedCategory);
+    ? allProjectsList
+    : allProjectsList.filter(p => p.category === selectedCategory);
 
   const scrollToProjects = () => {
     const section = document.getElementById('projects-catalog');
@@ -130,53 +135,56 @@ export default function Projects() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
                 {/* Left: 3 Stacked Screenshot Images */}
-                <div className="lg:col-span-6">
-                  <div className="relative w-full h-[200px] sm:h-[240px] lg:h-[260px]">
+                <div className="lg:col-span-6 flex items-center justify-center pt-4 lg:pt-0">
+                  <div className="relative w-full max-w-[480px] h-[240px] sm:h-[300px] lg:h-[340px]">
 
-                    {/* Image 1 (back-left, tilted) */}
+                    {/* Image 1 (back-left, web, tilted) */}
                     <motion.div
-                      initial={{ opacity: 0, rotate: -8, scale: 0.9 }}
-                      whileInView={{ opacity: 1, rotate: -6, scale: 1 }}
-                      whileHover={{ scale: 1.15, zIndex: 40 }}
+                      initial={{ opacity: 0, rotate: -8, scale: 0.9, x: 20 }}
+                      whileInView={{ opacity: 1, rotate: -6, scale: 1, x: 0 }}
+                      whileHover={{ scale: 1.1, zIndex: 40, rotate: 0 }}
                       viewport={{ once: true, amount: 0.3 }}
                       transition={{ duration: 0.5 }}
-                      className="absolute top-3 left-0 w-[65%] h-[85%] rounded-2xl overflow-hidden shadow-2xl border border-white/10 group cursor-pointer z-10"
+                      className="absolute top-1/2 -translate-y-1/2 left-0 w-[55%] aspect-video rounded-xl overflow-hidden shadow-2xl border border-white/10 group cursor-pointer z-10 bg-[#f8f9fa] flex items-center justify-center p-2 sm:p-3"
                     >
                       <img
                         src={highlightProject.thumbnails[0]}
                         alt="Screenshot 1"
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                        className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500 rounded-sm sm:rounded-md shadow-sm"
                       />
                     </motion.div>
 
-                    {/* Image 2 (center-top, main focus) */}
+                    {/* Image 3 (back-right, web, tilted) */}
                     <motion.div
-                      initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                      whileHover={{ scale: 1.15, zIndex: 40 }}
+                      initial={{ opacity: 0, rotate: 8, scale: 0.9, x: -20 }}
+                      whileInView={{ opacity: 1, rotate: 6, scale: 1, x: 0 }}
+                      whileHover={{ scale: 1.1, zIndex: 40, rotate: 0 }}
                       viewport={{ once: true, amount: 0.3 }}
                       transition={{ duration: 0.5 }}
-                      className="absolute top-0 left-[15%] w-[75%] h-[95%] rounded-2xl overflow-hidden shadow-2xl border border-white/10 group cursor-pointer z-20"
-                    >
-                      <img
-                        src={highlightProject.mainImage}
-                        alt="Main Screenshot"
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                      />
-                    </motion.div>
-
-                    {/* Image 3 (back-right, tilted) */}
-                    <motion.div
-                      initial={{ opacity: 0, rotate: 8, scale: 0.9 }}
-                      whileInView={{ opacity: 1, rotate: 4, scale: 1 }}
-                      whileHover={{ scale: 1.15, zIndex: 40 }}
-                      viewport={{ once: true, amount: 0.3 }}
-                      transition={{ duration: 0.5 }}
-                      className="absolute top-5 right-0 w-[55%] h-[80%] rounded-2xl overflow-hidden shadow-2xl border border-white/10 group cursor-pointer z-10"
+                      className="absolute top-1/2 -translate-y-1/2 right-0 w-[55%] aspect-video rounded-xl overflow-hidden shadow-2xl border border-white/10 group cursor-pointer z-10 bg-[#f8f9fa] flex items-center justify-center p-2 sm:p-3"
                     >
                       <img
                         src={highlightProject.thumbnails[1]}
                         alt="Screenshot 3"
+                        className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500 rounded-sm sm:rounded-md shadow-sm"
+                      />
+                    </motion.div>
+
+                    {/* Image 2 (center-top, mobile, main focus) */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                      whileHover={{ scale: 1.05, zIndex: 40, y: -10 }}
+                      viewport={{ once: true, amount: 0.3 }}
+                      transition={{ duration: 0.5 }}
+                      className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 h-[95%] sm:h-[100%] aspect-[9/19] rounded-2xl sm:rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-[4px] sm:border-[8px] border-[#242b38] group cursor-pointer z-20 bg-white"
+                    >
+                      {/* Mobile Notch Mockup */}
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-[12px] sm:h-[16px] bg-[#242b38] rounded-b-xl sm:rounded-b-2xl z-30 opacity-80" />
+                      
+                      <img
+                        src={highlightProject.mainImage}
+                        alt="Main Screenshot"
                         className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                       />
                     </motion.div>
@@ -282,14 +290,62 @@ export default function Projects() {
                   className={idx % 2 !== 0 ? 'md:mt-16' : ''}
                 >
                   <Link to={`/projects/${project.id}`}>
-                    <div className="group relative rounded-2xl overflow-hidden aspect-[16/10] cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]">
+                    <div 
+                      className="group relative rounded-2xl overflow-hidden aspect-video cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]"
+                      onMouseEnter={(e) => {
+                        const video = e.currentTarget.querySelector('video');
+                        if (video) {
+                          // Play promise handling to avoid abort errors
+                          const playPromise = video.play();
+                          if (playPromise !== undefined) {
+                            playPromise.catch(() => {});
+                          }
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        const video = e.currentTarget.querySelector('video');
+                        if (video) {
+                          video.pause();
+                          video.currentTime = 0;
+                        }
+                      }}
+                    >
 
-                      {/* Background preview image */}
+                      {/* Ambient Blurred Background (always active) */}
+                      <div className="absolute inset-0 overflow-hidden bg-zinc-900">
+                        <img
+                          src={project.previewMedia}
+                          alt=""
+                          className="w-full h-full object-cover blur-xl scale-125 opacity-50"
+                        />
+                      </div>
+
+                      {/* Background static image */}
                       <img
                         src={project.previewMedia}
                         alt={project.title}
-                        className="absolute inset-0 w-full h-full object-cover"
+                        className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${(project.previewGif || project.previewVideo) ? 'group-hover:opacity-0' : ''}`}
                       />
+
+                      {/* Background GIF (plays when hovered) */}
+                      {project.previewGif && (
+                        <img
+                          src={project.previewGif}
+                          alt={`${project.title} animation`}
+                          className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 object-contain"
+                        />
+                      )}
+
+                      {/* Background Video (Hardware Accelerated) */}
+                      {project.previewVideo && (
+                        <video
+                          src={project.previewVideo}
+                          muted
+                          loop
+                          playsInline
+                          className="absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 object-contain"
+                        />
+                      )}
 
                       {/* Dark overlay with text content */}
                       <div className="absolute inset-0 bg-[#1e2330]/95 backdrop-blur-sm flex flex-col items-center justify-center text-center p-6 sm:p-8 transition-opacity duration-500 group-hover:opacity-0 z-10">
@@ -330,6 +386,7 @@ export default function Projects() {
           </div>
         </section>
 
+        <CTAAndFooter />
       </main>
     </div>
   );

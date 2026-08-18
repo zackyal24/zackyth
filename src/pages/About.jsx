@@ -5,6 +5,7 @@ import { personalInfo, experiences, skillCategories } from '../data/portfolioDat
 import CertificateCarousel from '../components/CertificateCarousel';
 import ActivityList from '../components/ActivityModal';
 import Sidebar from '../components/Sidebar';
+import CTAAndFooter from '../components/CTAAndFooter';
 
 const fadeSlideUp = {
   hidden: { opacity: 0, y: 40 },
@@ -93,7 +94,7 @@ export default function About() {
               </div>
             </motion.div>
 
-            {/* Right Column: FULL edge-to-edge image (no rounded corners, no margin, no padding) */}
+            {/* Right Column: FULL edge-to-edge image */}
             <div className="w-full lg:w-1/2 h-[50vh] sm:h-[60vh] lg:h-auto lg:absolute lg:top-0 lg:right-0 lg:bottom-0">
               <motion.div
                 layoutId="about-hero-image"
@@ -359,6 +360,7 @@ export default function About() {
           </motion.div>
         </section>
 
+        <CTAAndFooter />
       </main>
     </div>
   );

@@ -8,6 +8,12 @@ export default function ContactSection({ isActive }) {
   const [copied, setCopied] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
+
+  // IMPORTANT: Replace this URL with your actual Formspree endpoint URL!
+  // Example: "https://formspree.io/f/xbjvq..."
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/mkjwpwpr";
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(personalInfo.email);
@@ -15,11 +21,37 @@ export default function ContactSection({ isActive }) {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => setFormSubmitted(false), 4000);
-    setFormData({ name: '', email: '', message: '' });
+    setIsSubmitting(true);
+    setError('');
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message
+        })
+      });
+
+      if (response.ok) {
+        setFormSubmitted(true);
+        setTimeout(() => setFormSubmitted(false), 5000);
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setError('Oops! Something went wrong. Please try again.');
+      }
+    } catch (err) {
+      setError('Oops! Network error. Please check your internet connection.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const socialButtons = [
@@ -33,7 +65,7 @@ export default function ContactSection({ isActive }) {
   return (
     <section id="contact" className="snap-section min-h-screen w-full flex items-center justify-center py-20 px-6 lg:px-16 bg-[#fafafa] relative">
       <div className="max-w-6xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
+
         {/* Left Column sliding from Left */}
         <motion.div
           initial={{ opacity: 0, x: -200 }}
@@ -45,7 +77,7 @@ export default function ContactSection({ isActive }) {
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 font-sans">
               Get In Touch
             </h2>
-            
+
             <div className="space-y-1 pt-1">
               <div className="w-16 h-[3px] bg-zinc-900 rounded-full"></div>
               <div className="w-10 h-[2px] bg-zinc-400 rounded-full"></div>
@@ -77,7 +109,7 @@ export default function ContactSection({ isActive }) {
             <p className="text-xs font-mono tracking-widest text-zinc-400 uppercase mb-3">
               DIRECT CHANNELS
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-4">
               {socialButtons.map((social) => {
                 const Icon = social.icon;
                 return (
@@ -86,10 +118,10 @@ export default function ContactSection({ isActive }) {
                     href={social.href}
                     target="_blank"
                     rel="noreferrer"
-                    className={`px-4 py-2.5 bg-white border border-zinc-200 rounded-xl text-xs font-medium text-zinc-700 transition-all duration-200 flex items-center gap-2 shadow-xs ${social.color}`}
+                    title={social.name}
+                    className="w-12 h-12 bg-[#313b4d] hover:bg-zinc-800 rounded-full text-white transition-all duration-300 flex items-center justify-center shadow-md hover:shadow-lg hover:-translate-y-1"
                   >
-                    <Icon className="w-4 h-4" />
-                    <span>{social.name}</span>
+                    <Icon className="w-5 h-5" />
                   </a>
                 );
               })}
@@ -150,12 +182,19 @@ export default function ContactSection({ isActive }) {
                   />
                 </div>
 
+                {error && (
+                  <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm font-medium">
+                    {error}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full py-3.5 bg-zinc-900 text-white font-medium text-sm rounded-xl hover:bg-zinc-800 transition-colors shadow-md flex items-center justify-center gap-2 group"
+                  disabled={isSubmitting}
+                  className={`w-full py-3.5 bg-zinc-900 text-white font-medium text-sm rounded-xl transition-all shadow-md flex items-center justify-center gap-2 group ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:bg-zinc-800'}`}
                 >
-                  <span>Send Message</span>
-                  <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                  {!isSubmitting && <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}
                 </button>
               </form>
             )}

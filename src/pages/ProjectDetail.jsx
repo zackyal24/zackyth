@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, Calendar, Layers, Code, Image as ImageIcon } from 'lucide-react';
-import { highlightProject, otherProjects } from '../data/portfolioData';
+import { highlightProject, projectsList } from '../data/portfolioData';
 import Sidebar from '../components/Sidebar';
 import { GithubIcon } from '../components/SocialIcons';
 
@@ -12,7 +12,7 @@ export default function ProjectDetail() {
   const navigate = useNavigate();
 
   // Find matching project
-  const allProjects = [highlightProject, ...otherProjects];
+  const allProjects = [...projectsList];
   const project = allProjects.find(p => p.id === id);
 
   if (!project) {
@@ -100,27 +100,29 @@ export default function ProjectDetail() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="space-y-6 pt-10 border-t border-zinc-200"
+          className="space-y-12 pt-10 border-t border-zinc-200"
         >
           {/* Main Banner Image */}
-          <div className="rounded-2xl overflow-hidden bg-zinc-100 border border-zinc-100">
-            <img
-              src={project.mainImage || project.previewMedia}
-              alt={project.title}
-              className="w-full h-auto object-cover"
-            />
-          </div>
+          {project.mainImage && (
+            <div className="rounded-2xl overflow-hidden bg-zinc-100 border border-zinc-100">
+              <img
+                src={project.mainImage}
+                alt={project.title}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          )}
 
           {/* Documentation Gallery Photos */}
           {project.documentationPhotos && project.documentationPhotos.map((photo, idx) => (
             <div
               key={idx}
-              className="rounded-2xl overflow-hidden bg-zinc-100 border border-zinc-100"
+              className="rounded-2xl bg-[#f8f9fa] border border-zinc-100 flex justify-center items-center p-4 sm:p-8 overflow-hidden"
             >
               <img
                 src={photo}
                 alt={`Documentation ${idx + 1}`}
-                className="w-full h-auto object-cover"
+                className="max-h-[500px] sm:max-h-[700px] w-auto object-contain rounded-lg sm:rounded-xl shadow-sm"
               />
             </div>
           ))}

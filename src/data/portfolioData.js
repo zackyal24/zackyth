@@ -1,6 +1,6 @@
 export const personalInfo = {
   fullName: "Ahmad Zacky Taufiqul Hakim",
-  shortName: "Zacky",
+  shortName: "Zackyth",
   title: "Software Engineering & Cloud Engineer",
   email: "zackyalhakim24@gmail.com",
   location: "Indonesia",
@@ -11,10 +11,10 @@ export const personalInfo = {
   cvUrl: "/cv.pdf",
   socials: {
     email: "mailto:zackyalhakim24@gmail.com",
-    linkedin: "https://linkedin.com/in/zacky-al-hakim",
-    discord: "https://discord.com/users/zackyalhakim",
-    github: "https://github.com/zackyalhakim",
-    instagram: "https://instagram.com/zackyalhakim"
+    linkedin: "https://www.linkedin.com/in/ahmad-zacky-taufiqul-hakim/",
+    discord: "https://discordapp.com/users/660087885294207016",
+    github: "https://github.com/zackyal24",
+    instagram: "https://www.instagram.com/zackyal_04/"
   }
 };
 
@@ -87,218 +87,295 @@ export const certifications = [
   },
   {
     id: "dicoding-backend-gcp",
-    title: "Cloud Practitioner Essentials (Belajar Dasar AWS Cloud)",
+    title: "Belajar Membuat Aplikasi Backend untuk Pemula dengan Google Cloud ",
     issuer: "Dicoding",
     year: "Nov 2024",
-    badgeUrl: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=600&auto=format&fit=crop",
-    link: "#"
+    badgeUrl: "/img/cert/be-gcp-dicoding.png",
+    link: "https://www.dicoding.com/certificates/6RPNY7114Z2M"
   },
   {
-    id: "coursera-data-analytics",
-    title: "Google Data Analytics",
-    issuer: "Coursera",
+    id: "dicoding-js-dasar",
+    title: "Belajar Dasar Pemrograman Javascript",
+    issuer: "Dicoding",
     year: "Oct 2024",
-    badgeUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop",
-    link: "#"
+    badgeUrl: "/img/cert/js-dasar-dicoding.png",
+    link: "https://www.dicoding.com/certificates/0LZ04R54KP65"
   },
   {
-    id: "dicoding-data-science",
-    title: "Belajar Dasar Data Science",
+    id: "dicoding-web-dasar",
+    title: "Belajar Dasar Pemrograman Web",
     issuer: "Dicoding",
     year: "Sep 2024",
-    badgeUrl: "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?q=80&w=600&auto=format&fit=crop",
-    link: "#"
+    badgeUrl: "/img/cert/web-dasar-dicoding.png",
+    link: "https://www.dicoding.com/certificates/53XEOV75YZRN"
   },
   {
-    id: "dicoding-jaringan-komputer",
-    title: "Belajar Jaringan Komputer untuk Pemula",
+    id: "dicoding-git",
+    title: "Belajar Dasar Git dengan GitHub",
     issuer: "Dicoding",
-    year: "Aug 2024",
-    badgeUrl: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=600&auto=format&fit=crop",
+    year: "Des 2024",
+    badgeUrl: "/img/cert/git-dicoding.png",
+    link: "https://www.dicoding.com/certificates/JLX146WJ2X72"
+  },
+  {
+    id: "dicoding-logika-pemrograman",
+    title: "Pengenalan ke Logika Pemrograman",
+    issuer: "Dicoding",
+    year: "Sep 2024",
+    badgeUrl: "/img/cert/logika-pemrograman-dicoding.png",
+    link: "https://www.dicoding.com/certificates/07Z60NQ6MZQR"
+  },
+  {
+    id: "bnsp-okm",
+    title: "Intermediate Computer Operator",
+    issuer: "BNSP",
+    year: "Jun 2024",
+    badgeUrl: "/img/cert/okm.png",
     link: "#"
   },
   {
-    id: "bnsp-jwd",
-    title: "Junior Web Developer",
+    id: "dicoding-cloud-engineer",
+    title: "Menjadi Google Cloud Engineer",
+    issuer: "Dicoding",
+    year: "Jan 2025",
+    badgeUrl: "/img/cert/google-cloud-engineer-dicoding.png",
+    link: "https://www.dicoding.com/certificates/0LZ04N39QP65"
+  },
+  {
+    id: "dicoding-cloud-architect",
+    title: "Menjadi Google Cloud Architect",
+    issuer: "Dicoding",
+    year: "Mar 2025",
+    badgeUrl: "/img/cert/google-cloud-architect-dicoding.png",
+    link: "https://www.dicoding.com/certificates/0LZ04N39QP65"
+  },
+  {
+    id: "bnsp-ve",
+    title: "Video Editing",
     issuer: "BNSP",
-    year: "Oct 2023",
-    badgeUrl: "/img/cert/jwd.png",
+    year: "Jun 2024",
+    badgeUrl: "/img/cert/video-editing.png",
     link: "#"
+  },
+  {
+    id: "dicoding-pengembang-software",
+    title: "Memulai Dasar Pemrograman untuk Menjadi Pengembang Software",
+    issuer: "Dicoding",
+    year: "Jul 2025",
+    badgeUrl: "/img/cert/pengembang-software-dicoding.png",
+    link: "https://www.dicoding.com/certificates/1RXYLGD3KPVM"
+  },
+  {
+    id: "dicoding-ml-gcp",
+    title: "Belajar Penerapan Machine Learning dengan Google Cloud",
+    issuer: "Dicoding",
+    year: "Nov 2024",
+    badgeUrl: "/img/cert/ml-gcp-dicoding.png",
+    link: "https://www.dicoding.com/certificates/0LZ04EEG0P65"
+  },
+  {
+    id: "dicoding-dasar-ai",
+    title: "Belajar Dasar AI",
+    issuer: "Dicoding",
+    year: "Nov 2024",
+    badgeUrl: "/img/cert/dasar-ai-dicoding.png",
+    link: "https://www.dicoding.com/certificates/6RPNY9759Z2M"
   }
 ];
 
 export const activities = [
   {
     id: "act-1",
-    title: "National Hackathon 1st Winner — Cloud Innovation",
-    date: "November 2024",
-    location: "Jakarta, Indonesia",
-    category: "Competition",
-    shortDesc: "Led a team of 4 to design an AI-powered disaster management cloud platform, winning 1st place out of 120+ competing teams.",
-    fullDetails: "Developed a serverless cloud infrastructure on AWS leveraging Lambda, DynamoDB, and real-time WebSockets to coordinate emergency relief resources. Presented the live working system to industry executives.",
-    image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=800&auto=format&fit=crop",
+    title: "Economic Census 2026 Training Committee",
+    date: "July 2026",
+    location: "BPS Bekasi Regency",
+    category: "Committee / Organization",
+    shortDesc: "Served as Assistant PIC for the Economic Census training, handling administration, data validation, and participant coordination.",
+    fullDetails: "Served as an Assistant PIC for the 9-day Economic Census 2026 training at BPS Bekasi Regency. Supported training administration, participant data validation and input, participant coordination, documentation, and daily operational activities to ensure the training ran smoothly. This experience strengthened my communication, teamwork, coordination, data management, and organizational skills.",
+    image: "/img/activities/se2026/img1.jpeg",
     gallery: [
-      "https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop"
+      "/img/activities/se2026/img1.jpeg",
+      "/img/activities/se2026/img2.jpeg",
+      "/img/activities/se2026/img3.jpeg"
     ]
   },
   {
     id: "act-2",
-    title: "Speaker: Building Resilient Microservices with Go & Docker",
-    date: "August 2024",
-    location: "Tech Campus Summit",
-    category: "Tech Speaker",
-    shortDesc: "Delivered a technical keynote workshop on scalable microservices design patterns to over 250 software engineers and students.",
-    fullDetails: "Covered topics including gRPC communication, containerization strategies, load balancing with Nginx, and real-world blue/green deployment strategies.",
-    image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=800&auto=format&fit=crop",
+    title: "Mawlid an-Nabi Event Committee",
+    date: "September 2025",
+    location: "Masjid Syiarul Islam",
+    category: "Committee / Organization",
+    shortDesc: "Served as a committee member for the Mawlid an-Nabi event, assisting with preparation and smooth execution.",
+    fullDetails: "Participated as a committee member in organizing a Mawlid an-Nabi event at Masjid Syiarul Islam. Contributed to event preparation, coordination with committee members, and supporting the smooth execution of the event. This experience strengthened my teamwork, communication, coordination, and organizational skills.",
+    image: "/img/activities/mawlid/img1.jpeg",
     gallery: [
-      "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=800&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=800&auto=format&fit=crop"
+      "/img/activities/mawlid/img1.jpeg",
+      "/img/activities/mawlid/img2.jpeg"
     ]
   },
   {
     id: "act-3",
-    title: "Open Source Contributor: Cloud Infrastructure CLI",
-    date: "2023 - Present",
-    location: "Remote / GitHub",
-    category: "Open Source",
-    shortDesc: "Active core contributor to developer tools for Kubernetes resource management and automated container deployment scripts.",
-    fullDetails: "Authored multiple PRs improving memory allocation checks, Docker container image multi-arch builds, and automated CLI documentation generators.",
-    image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=800&auto=format&fit=crop",
+    title: "Ubinan Field Activity",
+    date: "April 2025",
+    location: "Karangsatu Village, Karangbahagia District",
+    category: "Field Observation",
+    shortDesc: "Participated in crop-cutting measurements (ubinan) for agricultural statistical data collection alongside the BPS team.",
+    fullDetails: "Participated in a field activity to conduct crop-cutting measurements (ubinan) in Karangsatu Village, Karangbahagia District. Contributed to the field observation and data collection process while working alongside the BPS team. This activity provided hands-on experience in statistical fieldwork, data collection, teamwork, and understanding the process behind agricultural survey activities.",
+    image: "/img/activities/ubinan/img1.jpg",
     gallery: [
-      "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=800&auto=format&fit=crop"
+      "/img/activities/ubinan/img1.jpg",
+      "/img/activities/ubinan/img2.jpg",
+      "/img/activities/ubinan/img3.jpg",
+      "/img/activities/ubinan/img4.jpg"
     ]
   },
   {
     id: "act-4",
-    title: "AWS Cloud Bootcamp Mentor",
-    date: "February 2024",
-    location: "Online Workshop",
-    category: "Mentorship",
-    shortDesc: "Mentored 50+ aspiring cloud engineers in hands-on AWS IAM, EC2, Terraform IaC, and Kubernetes setup.",
-    fullDetails: "Designed interactive lab sessions and guided participants through configuring secure VPCs, automated deployment pipelines, and cloud monitoring dashboards.",
-    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800&auto=format&fit=crop",
+    title: "HIMTIKA Dies Natalis 2023",
+    date: "October 2023",
+    location: "Campus",
+    category: "Competition",
+    shortDesc: "Achieved 1st Place in the Pro Evolution Soccer competition during the HIMTIKA Dies Natalis 2023 event.",
+    fullDetails: "Achieved 1st Place in the Pro Evolution Soccer competition during the HIMTIKA Dies Natalis 2023 event.",
+    image: "/img/activities/diesnat_himtika/img1.jpeg",
     gallery: [
-      "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=800&auto=format&fit=crop"
+      "/img/activities/diesnat_himtika/img1.jpeg",
+      "/img/activities/diesnat_himtika/img2.png"
+    ]
+  },
+  {
+    id: "act-5",
+    title: "Socialization Activity",
+    date: "November 2022",
+    location: "SDN Sukaharja II",
+    category: "Social Activity",
+    shortDesc: "Delivered an engaging session on juvenile delinquency prevention to 60+ students, strengthening communication and teamwork skills.",
+    fullDetails: "Participated in a group outreach activity at SDN Sukaharja II, delivering a session on juvenile delinquency prevention to 60+ students. Contributed to preparing educational materials, coordinating with team members, and presenting the topic in an engaging and easy-to-understand way. This activity strengthened my communication, teamwork, presentation, and interpersonal skills.",
+    image: "/img/activities/socialization_sd/img1.jpg",
+    gallery: [
+      "/img/activities/socialization_sd/img1.jpg",
+      "/img/activities/socialization_sd/img2.jpeg",
+      "/img/activities/socialization_sd/img3.jpeg"
+    ]
+  },
+  {
+    id: "act-6",
+    title: "GDG Jakarta DevFest 2022",
+    date: "November 2022",
+    location: "Jakarta",
+    category: "Conference / Seminar",
+    shortDesc: "Participated in a knowledge-sharing event covering IT systems, cybersecurity, and machine learning.",
+    fullDetails: "Participated in a knowledge-sharing event with IT professionals covering topics such as IT systems, cybersecurity, and machine learning. Gained insights into industry trends, real-world applications, and emerging technologies while broadening my understanding of the technology field.",
+    image: "/img/activities/devfest/img1.jpg",
+    gallery: [
+      "/img/activities/devfest/img1.jpg",
+      "/img/activities/devfest/img2.jpeg"
     ]
   }
 ];
+
+export const projectsList = [
+  {
+    id: "sipandu-bps",
+    title: "SIPANDU",
+    category: "Web Development",
+    shortDesc: "A web-based monitoring system developed for BPS Bekasi Regency to structure activity monitoring, data management, and validation, replacing manual Google Sheets processes.",
+    previewMedia: "/img/projects/sipandu/img2.png",
+    previewVideo: "/img/projects/sipandu/preview.mp4",
+    technologies: ["Javascript", "Bootstrap", "Express.js", "PostgreSQL", "Google Cloud Storage"],
+    year: "2026",
+    liveUrl: "",
+    githubUrl: "#",
+    fullDescription: "Developed a web-based monitoring system for ubinan (crop-cutting) activities to address the limitations of a monitoring process that was previously managed manually using Google Sheets. The system is designed to facilitate activity monitoring, data management, validation, and progress recapitulation in a more structured manner. The system is named SIPANDU (Sistem Informasi Panen Ubinan Terpadu).\n\nThe system was successfully implemented and used at BPS Bekasi Regency. User Acceptance Test (UAT) results achieved a score of 82.54%, categorized as highly feasible, indicating that the system effectively meets user needs in supporting the monitoring process of ubinan activities.",
+    documentationPhotos: [
+      "/img/projects/sipandu/img1.png",
+      "/img/projects/sipandu/img2.png",
+      "/img/projects/sipandu/img3.png",
+      "/img/projects/sipandu/img4.png"
+    ]
+  },
+  {
+    id: "isyara-app",
+    title: "Isyara",
+    category: "Cloud Computing",
+    shortDesc: "Designed and deployed the cloud infrastructure and assisted with backend APIs for an AI sign language translation app during the Bangkit Academy capstone.",
+    previewMedia: "/img/projects/isyara/isyara.png",
+    previewVideo: "/img/projects/isyara/preview.mp4",
+    isPortrait: true,
+    technologies: ["GCP", "Node.js", "Express.js"],
+    year: "2024",
+    liveUrl: "https://youtu.be/_oeRoAnehdg?si=YucH3wr03DZ8FEaU",
+    githubUrl: "https://github.com/Isyara-project",
+    fullDescription: "Isyara is an Android-based application designed to facilitate communication between people with speech and hearing disabilities and the wider community through real-time sign language translation. The application uses AI to recognize sign language gestures and translate them into Indonesian text, complemented by translation history and an interactive sign language dictionary.\n\nAs part of the Cloud Computing learning path for the Bangkit Academy capstone project, my primary role was designing and deploying the required cloud infrastructure on Google Cloud Platform (GCP). In addition to managing the cloud architecture, I assisted with backend API development and integration to ensure a seamless flow of data between the mobile application and the AI translation services.",
+    documentationPhotos: [
+      "/img/projects/isyara/img1.png",
+      "/img/projects/isyara/img2.png",
+      "/img/projects/isyara/img3.png"
+    ]
+  },
+  {
+    id: "library-web-app",
+    title: "Library Management System",
+    category: "Web Development",
+    shortDesc: "A web-based library system featuring role-based access, book tracking, and transaction management for students and admins.",
+    previewMedia: "/img/projects/library/img1.png",
+    previewVideo: "/img/projects/library/preview.mp4",
+    technologies: ["Bootstrap", "JavaScript", "PHP", "jQuery"],
+    year: "2024",
+    liveUrl: "",
+    githubUrl: "https://github.com/zackyal24/perpustakaan-web",
+    fullDescription: "Developed a web-based library management system to make it easier for students to find available books, check shelf locations, and view their borrowing history. The system provides separate roles for Admin and Members, with features for managing book data, borrowing and return transactions, and fine tracking.\n\nDeveloped as an academic project, the system was designed to provide a more organized way to manage and access library information. It brings book records, member information, and borrowing transactions into a single web-based system, making library data easier to manage and access.",
+    documentationPhotos: [
+      "/img/projects/library/img1.png",
+      "/img/projects/library/img2.png",
+      "/img/projects/library/img3.png",
+      "/img/projects/library/img4.png"
+    ]
+  },
+  {
+    id: "etrack-finance",
+    title: "eTrack",
+    category: "Web Development",
+    shortDesc: "A personal finance web application for tracking income, expenses, and financial goals to help users manage their finances.",
+    previewMedia: "/img/projects/etrack/img1.png",
+    previewVideo: "/img/projects/etrack/preview.mp4",
+    technologies: ["Bootstrap", "JavaScript", "Express.js", "MySQL"],
+    year: "2025",
+    liveUrl: "",
+    githubUrl: "https://github.com/zackyal24/eTrack",
+    fullDescription: "Developed eTrack, a personal finance web application designed to help users keep track of their income and expenses. The application addresses the difficulty of managing finances when users do not regularly record their financial activity, making it harder to understand their financial condition, analyze spending patterns, and determine appropriate financial decisions.\n\nThe application provides features for recording income and expenses, viewing transaction history, generating income and expense reports, and setting financial goals. Users can also track their progress toward each goal by recording contributions over time, allowing them to monitor and manage their financial targets in a more structured way.",
+    documentationPhotos: [
+      "/img/projects/etrack/img1.png",
+      "/img/projects/etrack/img2.png",
+      "/img/projects/etrack/img3.png"
+    ]
+  },
+  {
+    id: "laziiza-choco",
+    title: "Laziiza Choco",
+    category: "Web Development",
+    shortDesc: "A responsive landing page for Laziiza Choco to showcase products and facilitate WhatsApp pre-orders.",
+    previewMedia: "https://images.unsplash.com/photo-1511381939415-e440c9a18d0d?q=80&w=800&auto=format&fit=crop",
+    technologies: ["React", "Tailwind", "Vite"],
+    year: "2026",
+    liveUrl: "#",
+    githubUrl: "#",
+    fullDescription: "Developed a responsive landing page for Laziiza Choco to provide an online presence for the brand and make its products easier to discover. The website presents the brand, product offerings such as Tempe Crunch and Veggie Crunch, product highlights, and the pre-order process in a simple and engaging layout.\n\nThe landing page was designed to help potential customers understand the products and ordering process, with a direct call-to-action that allows customers to place orders through WhatsApp. The project focuses on creating a clear product presentation and a simple path from discovering the product to making an order.",
+    documentationPhotos: [
+      "https://images.unsplash.com/photo-1511381939415-e440c9a18d0d?q=80&w=1200&auto=format&fit=crop"
+    ]
+  }
+];
+
+const baseHighlight = projectsList.find(p => p.id === "sipandu-bps");
 
 export const highlightProject = {
-  id: "sipandu-bps",
-  title: "SIPANDU (Sistem Informasi Pemantauan Terpadu) - BPS",
-  tagline: "Monitoring and performance tracking system for census enumerators",
-  description: "A comprehensive web application developed for Badan Pusat Statistik (BPS) to organize and track performance metrics for over 2,000 field enumerators in the 2024 National Social Economic Survey (Susenas).",
-  mainImage: "/img/projects/sipandu-main.jpg",
+  ...baseHighlight,
+  tagline: "Web-based monitoring system for Ubinan activities",
+  description: "A web-based monitoring system developed for BPS Bekasi Regency to structure activity monitoring, data management, and validation, replacing manual Google Sheets processes.",
+  mainImage: "/img/projects/sipandu/img1.png",
   thumbnails: [
-    "/img/projects/sipandu-1.jpg",
-    "/img/projects/sipandu-2.jpg",
-    "/img/projects/sipandu-3.jpg"
-  ],
-  technologies: ["Next.js", "FastAPI", "PostgreSQL", "Google Cloud", "Python", "React"],
-  year: "2024",
-  liveUrl: "",
-  githubUrl: "#",
-  fullDescription: "SIPANDU (Sistem Informasi Pemantauan Terpadu) is an integrated monitoring system built during my tenure as a Web Developer Intern at Badan Pusat Statistik (BPS) Kabupaten Bekasi. The platform was engineered to solve the logistical challenge of tracking over 2,000 field enumerators during the 2024 National Social Economic Survey (Susenas).\n\nBy leveraging a robust Next.js frontend and a high-performance FastAPI backend, the system seamlessly handles large datasets stored securely in a PostgreSQL database hosted on Google Cloud (GCP). It features real-time performance metrics, automated data tracking, and dynamic reporting tools that drastically improved the efficiency of census supervisors. The project was highly successful, achieving a User Acceptance Testing (UAT) score of 82.54%.",
-  documentationPhotos: [
-    "/img/projects/sipandu-doc1.jpg",
-    "/img/projects/sipandu-doc2.jpg",
-    "/img/projects/sipandu-doc3.jpg"
+    "/img/projects/sipandu/img2.png",
+    "/img/projects/sipandu/img3.png"
   ]
 };
-
-export const otherProjects = [
-  {
-    id: "kubedeploy-pipeline",
-    title: "KubeDeploy CI/CD Automation",
-    category: "Cloud Computing",
-    shortDesc: "Automated Kubernetes cluster deployment pipeline with zero-downtime rolling updates and Slack alert integrations.",
-    previewMedia: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?q=80&w=800&auto=format&fit=crop", // Dynamic preview image
-    technologies: ["Docker", "Kubernetes", "Helm", "Go", "GitHub Actions", "AWS"],
-    year: "2024",
-    liveUrl: "https://example.com/kubedeploy",
-    githubUrl: "https://github.com/zackyalhakim/kubedeploy",
-    fullDescription: "KubeDeploy is an automated deployment engine designed to simplify Kubernetes rollouts for microservices. It automatically generates deployment manifests, executes automated integration tests, and handles canary deployments with automatic rollback triggers.",
-    documentationPhotos: [
-      "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=1200&auto=format&fit=crop"
-    ]
-  },
-  {
-    id: "apex-commerce",
-    title: "Apex E-Commerce Engine",
-    category: "Web Development",
-    shortDesc: "High-performance React & Next.js storefront with dynamic SSR, Stripe payments, and Redis session management.",
-    previewMedia: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=800&auto=format&fit=crop",
-    technologies: ["React", "Next.js", "Tailwind CSS", "Node.js", "Stripe API", "Redis"],
-    year: "2024",
-    liveUrl: "https://example.com/apexcommerce",
-    githubUrl: "https://github.com/zackyalhakim/apex-commerce",
-    fullDescription: "Apex Commerce was engineered to deliver sub-second page load times for high-volume retail stores. Features include optimistic UI updates, automated cart synchronization, and serverless payment processing.",
-    documentationPhotos: [
-      "https://images.unsplash.com/photo-1472851294608-062f824d29cc?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop"
-    ]
-  },
-  {
-    id: "flowtask-workspace",
-    title: "FlowTask Real-Time Canvas",
-    category: "Web Development",
-    shortDesc: "Collaborative project workspace featuring real-time multiplayer editing, kanban boards, and interactive Gantt charts.",
-    previewMedia: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=800&auto=format&fit=crop",
-    technologies: ["React", "WebSockets", "Framer Motion", "Express", "MongoDB"],
-    year: "2023",
-    liveUrl: "https://example.com/flowtask",
-    githubUrl: "https://github.com/zackyalhakim/flowtask",
-    fullDescription: "FlowTask brings seamless collaboration to remote development teams. Powered by WebSocket servers and operational transformation algorithms, users can draw, manage tasks, and communicate in real time.",
-    documentationPhotos: [
-      "https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1200&auto=format&fit=crop"
-    ]
-  },
-  {
-    id: "cloudmonitor-metrics",
-    title: "Serverless Metrics & Alerting",
-    category: "Cloud Computing",
-    shortDesc: "Real-time log ingestion and anomaly detection engine powered by AWS Lambda and Prometheus integration.",
-    previewMedia: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop",
-    technologies: ["AWS Lambda", "Python", "Prometheus", "Grafana", "Terraform"],
-    year: "2023",
-    liveUrl: "https://example.com/cloudmonitor",
-    githubUrl: "https://github.com/zackyalhakim/cloud-monitor",
-    fullDescription: "CloudMonitor collects system telemetry from microservices endpoints and analyzes throughput patterns in real-time, triggering automated scaling policies and alerting engineering teams via PagerDuty & Slack.",
-    documentationPhotos: [
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop"
-    ]
-  },
-  {
-    id: "devsync-cli",
-    title: "DevSync Developer CLI Tool",
-    category: "Other",
-    shortDesc: "Cross-platform CLI tool built in Go to quickly spin up local development environments and microservices containers.",
-    previewMedia: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?q=80&w=800&auto=format&fit=crop",
-    technologies: ["Go (Golang)", "Docker API", "Cobra CLI", "Linux Shell"],
-    year: "2024",
-    liveUrl: "https://example.com/devsync",
-    githubUrl: "https://github.com/zackyalhakim/devsync-cli",
-    fullDescription: "DevSync speeds up onboarding for software development teams by automating complex Docker Compose setups, database migrations, and local environment variables configuration in a single command.",
-    documentationPhotos: [
-      "https://images.unsplash.com/photo-1629654297299-c8506221ca97?q=80&w=1200&auto=format&fit=crop"
-    ]
-  },
-  {
-    id: "ai-design-visualizer",
-    title: "AI Canvas & Design Studio",
-    category: "Other",
-    shortDesc: "Interactive web studio generating UI component wireframes and color schemes using machine learning APIs.",
-    previewMedia: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop",
-    technologies: ["React", "Tailwind CSS", "OpenAI API", "Canvas API", "Node.js"],
-    year: "2024",
-    liveUrl: "https://example.com/aivisualizer",
-    githubUrl: "https://github.com/zackyalhakim/ai-canvas-studio",
-    fullDescription: "AI Visualizer allows UI/UX designers and front-end developers to generate design tokens, accessible color contrast schemes, and HTML/Tailwind starter templates directly from prompt descriptions.",
-    documentationPhotos: [
-      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop"
-    ]
-  }
-];

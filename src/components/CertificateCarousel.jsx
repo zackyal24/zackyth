@@ -122,20 +122,20 @@ export default function CertificateCarousel() {
             onClick={() => setSelectedCert(cert)}
           >
             {/* Full Image */}
-            <div className="relative flex-1 w-full bg-zinc-100 overflow-hidden">
+            <div className="relative h-[260px] w-full bg-zinc-100 overflow-hidden flex items-center justify-center p-4">
               <img
                 src={cert.badgeUrl}
                 alt={cert.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-sm"
               />
             </div>
 
             {/* Title Section */}
-            <div className="p-6 bg-white border-t border-zinc-100 min-h-[110px] flex flex-col justify-center">
+            <div className="px-6 py-5 bg-white border-t border-zinc-100 h-[140px] flex flex-col justify-start">
               <span className="text-[11px] font-bold text-zinc-400 uppercase tracking-widest mb-1.5 font-mono">
                 ISSUED {cert.year}
               </span>
-              <h4 className="text-base font-bold text-zinc-900 leading-snug line-clamp-3">
+              <h4 className="text-[15px] font-bold text-zinc-900 leading-snug line-clamp-3">
                 {cert.title}
               </h4>
             </div>
@@ -171,14 +171,14 @@ export default function CertificateCarousel() {
 
               <div 
                 ref={containerRef}
-                className={`w-full h-[360px] sm:h-[400px] bg-zinc-100 relative overflow-hidden flex-shrink-0 select-none ${isZoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'}`}
+                className={`w-full h-[360px] sm:h-[400px] bg-zinc-100 relative overflow-hidden flex-shrink-0 select-none p-4 flex items-center justify-center ${isZoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'}`}
                 onMouseMove={handleMouseMove}
                 onClick={handleImageClick}
               >
                 <img 
                   src={selectedCert.badgeUrl} 
                   alt={selectedCert.title} 
-                  className="w-full h-full object-cover transition-transform duration-300 ease-out" 
+                  className="w-full h-full object-contain transition-transform duration-300 ease-out drop-shadow-md" 
                   style={{
                     transform: isZoomed ? 'scale(2.5)' : 'scale(1)',
                     transformOrigin: `${mousePos.x} ${mousePos.y}`
