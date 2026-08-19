@@ -63,53 +63,53 @@ export default function ContactSection({ isActive }) {
   ];
 
   return (
-    <section id="contact" className="snap-section min-h-screen w-full flex items-center justify-center py-20 px-6 lg:px-16 bg-[#fafafa] relative">
-      <div className="max-w-6xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <section id="contact" className="snap-section min-h-screen w-full flex items-start lg:items-center justify-center pt-24 pb-12 lg:py-20 px-6 lg:px-16 bg-[#fafafa] relative overflow-y-auto">
+      <div className="max-w-6xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start lg:items-center my-auto">
 
-        {/* Left Column sliding from Left */}
+        {/* Left Column (Text & Socials) */}
         <motion.div
           initial={{ opacity: 0, x: -200 }}
           animate={isActive ? { opacity: 1, x: 0 } : { opacity: 0, x: -200 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-6 space-y-6"
+          className="order-1 lg:col-span-6 space-y-6 flex flex-col items-center lg:items-start text-center lg:text-left"
         >
-          <div className="space-y-3">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 font-sans">
+          <div className="space-y-3 flex flex-col items-center lg:items-start">
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold tracking-tight text-zinc-900 font-sans">
               Get In Touch
             </h2>
 
-            <div className="space-y-1 pt-1">
+            <div className="space-y-1 pt-1 flex flex-col items-center lg:items-start">
               <div className="w-16 h-[3px] bg-zinc-900 rounded-full"></div>
               <div className="w-10 h-[2px] bg-zinc-400 rounded-full"></div>
             </div>
           </div>
 
-          <p className="text-base text-zinc-600 leading-relaxed max-w-lg">
-            Whether you are looking to build a modern scalable web platform, architect cloud infrastructure, or discuss potential engineering opportunities, feel free to reach out directly.
+          <p className="text-sm sm:text-base text-zinc-600 leading-relaxed max-w-lg">
+            Drop me a message and let's build something great together.
           </p>
 
-          <div className="pt-2">
-            <div className="inline-flex items-center gap-3 p-2 pl-4 bg-white border border-zinc-300/80 rounded-2xl shadow-sm hover:border-zinc-400 transition-colors">
-              <Mail className="w-4 h-4 text-zinc-500" />
-              <span className="text-sm font-semibold font-mono text-zinc-800">
+          <div className="pt-2 w-full flex justify-center lg:justify-start">
+            <div className="inline-flex items-center gap-2 sm:gap-3 p-2 pl-3 sm:pl-4 bg-white border border-zinc-300/80 rounded-2xl shadow-sm hover:border-zinc-400 transition-colors max-w-full overflow-hidden">
+              <Mail className="w-4 h-4 text-zinc-500 shrink-0" />
+              <span className="text-xs sm:text-sm font-semibold font-mono text-zinc-800 truncate">
                 {personalInfo.email}
               </span>
               <button
                 onClick={handleCopyEmail}
-                className="p-2 bg-zinc-100 hover:bg-zinc-200 rounded-xl text-zinc-700 transition-colors text-xs flex items-center gap-1 font-sans"
+                className="p-1.5 sm:p-2 bg-zinc-100 hover:bg-zinc-200 rounded-xl text-zinc-700 transition-colors text-[10px] sm:text-xs flex items-center gap-1 font-sans shrink-0"
                 title="Copy email to clipboard"
               >
                 {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copied ? 'Copied!' : 'Copy'}</span>
+                <span className="hidden sm:inline">{copied ? 'Copied!' : 'Copy'}</span>
               </button>
             </div>
           </div>
 
-          <div className="pt-4">
-            <p className="text-xs font-mono tracking-widest text-zinc-400 uppercase mb-3">
+          <div className="pt-4 flex flex-col items-center lg:items-start w-full">
+            <p className="text-xs font-mono tracking-widest text-zinc-400 uppercase mb-3 text-center lg:text-left">
               DIRECT CHANNELS
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-4">
               {socialButtons.map((social) => {
                 const Icon = social.icon;
                 return (
@@ -129,56 +129,56 @@ export default function ContactSection({ isActive }) {
           </div>
         </motion.div>
 
-        {/* Right Column sliding from Right */}
+        {/* Right Column (Form) */}
         <motion.div
           initial={{ opacity: 0, x: 200 }}
           animate={isActive ? { opacity: 1, x: 0 } : { opacity: 0, x: 200 }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="lg:col-span-6"
+          className="order-2 lg:col-span-6 mt-8 lg:mt-0"
         >
-          <div className="bg-white p-8 rounded-3xl border border-zinc-200/80 shadow-xl">
-            <h3 className="text-xl font-bold text-zinc-900 mb-2">Send me a direct message</h3>
-            <p className="text-xs text-zinc-500 mb-6">I usually respond within 24 hours.</p>
+          <div className="bg-white p-6 lg:p-8 rounded-3xl border border-zinc-200/80 shadow-xl">
+            <h3 className="text-lg sm:text-xl font-bold text-zinc-900 mb-1 lg:mb-2">Send me a direct message</h3>
+            <p className="text-[11px] sm:text-xs text-zinc-500 mb-5 lg:mb-6">I usually respond within 24 hours.</p>
 
             {formSubmitted ? (
-              <div className="p-6 bg-emerald-50 border border-emerald-200 rounded-2xl text-emerald-800 text-center font-medium">
+              <div className="p-5 lg:p-6 bg-emerald-50 border border-emerald-200 rounded-2xl text-emerald-800 text-center font-medium text-sm lg:text-base">
                 Thank you! Your message has been sent successfully.
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-3 lg:space-y-4">
                 <div>
-                  <label className="block text-xs font-mono text-zinc-600 mb-1">YOUR NAME</label>
+                  <label className="block text-[10px] sm:text-xs font-mono text-zinc-600 mb-1">YOUR NAME</label>
                   <input
                     type="text"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="e.g. John Doe"
-                    className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl text-sm focus:outline-none focus:border-zinc-800 transition-colors"
+                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-zinc-50 border border-zinc-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-zinc-800 transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono text-zinc-600 mb-1">YOUR EMAIL</label>
+                  <label className="block text-[10px] sm:text-xs font-mono text-zinc-600 mb-1">YOUR EMAIL</label>
                   <input
                     type="email"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="e.g. john@example.com"
-                    className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl text-sm focus:outline-none focus:border-zinc-800 transition-colors"
+                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-zinc-50 border border-zinc-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-zinc-800 transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono text-zinc-600 mb-1">MESSAGE</label>
+                  <label className="block text-[10px] sm:text-xs font-mono text-zinc-600 mb-1">MESSAGE</label>
                   <textarea
                     required
-                    rows={4}
+                    rows={3}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Tell me about your project or inquiry..."
-                    className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl text-sm focus:outline-none focus:border-zinc-800 transition-colors resize-none"
+                    className="w-full px-3 py-2.5 lg:px-4 lg:py-3 bg-zinc-50 border border-zinc-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-zinc-800 transition-colors resize-none"
                   />
                 </div>
 

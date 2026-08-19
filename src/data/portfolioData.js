@@ -12,7 +12,7 @@ export const personalInfo = {
   cvUrl: "/cv.pdf",
   socials: {
     email: "mailto:zackyalhakim24@gmail.com",
-    linkedin: "https://www.linkedin.com/in/ahmad-zacky-taufiqul-hakim/",
+    linkedin: "https://www.linkedin.com/in/zackyth/",
     discord: "https://discordapp.com/users/660087885294207016",
     github: "https://github.com/zackyal24",
     instagram: "https://www.instagram.com/zackyal_04/"

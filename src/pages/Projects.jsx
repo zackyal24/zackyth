@@ -57,27 +57,27 @@ export default function Projects() {
               viewport={{ once: true, amount: 0.3 }}
               variants={fadeSlideLeft}
               transition={{ duration: 0.7 }}
-              className="w-full lg:w-1/2 min-h-[50vh] lg:min-h-screen flex flex-col justify-center px-8 lg:px-16 xl:px-24 py-28 lg:py-20 z-10"
+              className="order-2 lg:order-1 w-full lg:w-1/2 min-h-[50vh] lg:min-h-screen flex flex-col justify-center items-center lg:items-start text-center lg:text-left px-8 lg:px-16 xl:px-24 py-12 lg:py-20 z-10"
             >
-              <div className="space-y-6 max-w-lg">
-                <div className="space-y-3">
-                  <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-zinc-900 font-sans leading-[1.05]">
+              <div className="space-y-6 max-w-lg flex flex-col items-center lg:items-start">
+                <div className="space-y-3 flex flex-col items-center lg:items-start">
+                  <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-zinc-900 font-sans leading-[1.05]">
                     My Projects
                   </h1>
-                  <div className="space-y-1.5 pt-2">
+                  <div className="space-y-1.5 pt-2 flex flex-col items-center lg:items-start">
                     <div className="w-16 h-[3px] bg-zinc-900 rounded-full"></div>
                     <div className="w-10 h-[2px] bg-zinc-400 rounded-full"></div>
                   </div>
                 </div>
 
-                <p className="text-base sm:text-lg text-zinc-600 leading-relaxed font-sans">
+                <p className="text-sm sm:text-base lg:text-lg text-zinc-600 leading-relaxed font-sans">
                   Showcasing projects that highlight my journey.
                 </p>
 
                 <div className="pt-2">
                   <button
                     onClick={scrollToProjects}
-                    className="px-7 py-3.5 bg-[#242b38] hover:bg-zinc-900 text-white font-medium text-sm rounded-xl transition-all duration-300 shadow-md hover:shadow-lg"
+                    className="px-6 py-3 lg:px-7 lg:py-3.5 bg-[#242b38] hover:bg-zinc-900 text-white font-medium text-xs lg:text-sm rounded-xl transition-all duration-300 shadow-md hover:shadow-lg"
                   >
                     Scroll Down
                   </button>
@@ -86,7 +86,7 @@ export default function Projects() {
             </motion.div>
 
             {/* Right Column: FULL edge-to-edge image */}
-            <div className="w-full lg:w-1/2 h-[50vh] sm:h-[60vh] lg:h-auto lg:absolute lg:top-0 lg:right-0 lg:bottom-0">
+            <div className="order-1 lg:order-2 w-full lg:w-1/2 h-[55vh] sm:h-[60vh] lg:h-auto lg:absolute lg:top-0 lg:right-0 lg:bottom-0 pt-20 lg:pt-0">
               <motion.div
                 layoutId="projects-hero-image"
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}

@@ -178,29 +178,29 @@ export default function ActivityList() {
       <div className="relative">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
 
-          <div className="w-full lg:w-1/2">
-            <h3 className="text-4xl lg:text-5xl font-extrabold text-zinc-900 leading-[1.1] tracking-tight">
+          <div className="order-2 lg:order-1 w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-900 leading-[1.1] tracking-tight">
               My Activity
             </h3>
-            <p className="text-lg text-zinc-500 mt-6 leading-relaxed font-sans max-w-md">
+            <p className="text-sm sm:text-base lg:text-lg text-zinc-500 mt-4 lg:mt-6 leading-relaxed font-sans max-w-md">
               A collection of my recent activities and creative explorations. Discover what I've been up to lately.
             </p>
 
             <motion.button
               whileHover={{ x: 5 }}
               onClick={() => setIsGalleryOpen(true)}
-              className="mt-10 inline-flex items-center gap-3 bg-zinc-900 text-white px-8 py-4 rounded-full font-semibold hover:bg-zinc-800 transition-colors shadow-lg hover:shadow-xl"
+              className="mt-8 lg:mt-10 inline-flex items-center justify-center gap-2 sm:gap-3 bg-zinc-900 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold hover:bg-zinc-800 transition-colors shadow-lg hover:shadow-xl text-xs sm:text-sm lg:text-base"
             >
               <span>Explore Activity Gallery</span>
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </motion.button>
           </div>
 
-          <div className="w-full lg:w-1/2">
+          <div className="order-1 lg:order-2 w-full lg:w-1/2">
             <motion.div
               layoutId="hero-trigger"
               onClick={() => setIsGalleryOpen(true)}
-              className="relative w-full aspect-[4/3] rounded-[2.5rem] overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 bg-slate-200 group flex items-center justify-center p-8 sm:p-12"
+              className="relative w-full aspect-[4/3] rounded-[2.5rem] overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 bg-slate-200 group flex items-center justify-center p-6 sm:p-12 mb-4 lg:mb-0"
             >
               <div className="relative w-full h-full rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-700 overflow-hidden">
                 <CarouselImage
@@ -209,8 +209,8 @@ export default function ActivityList() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute top-6 right-6 bg-white/50 backdrop-blur-md p-3 rounded-full text-zinc-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <Maximize2 className="w-5 h-5" />
+              <div className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-white/50 backdrop-blur-md p-2 sm:p-3 rounded-full text-zinc-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <Maximize2 className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
             </motion.div>
           </div>

@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Award, X, ExternalLink } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Award, X, ExternalLink, ArrowRight } from 'lucide-react';
 import { certifications } from '../data/portfolioData';
 
 export default function CertificateCarousel() {
