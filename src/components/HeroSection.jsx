@@ -32,7 +32,8 @@ export default function HeroSection({ isActive, onContactClick }) {
           <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 lg:gap-4 pt-2">
             <a
               href={personalInfo.cvUrl}
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-6 py-3 lg:px-7 lg:py-3.5 bg-zinc-900 text-white font-medium text-xs lg:text-sm rounded-xl hover:bg-zinc-800 transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2 group"
             >
               <Download className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />

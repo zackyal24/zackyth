@@ -9,7 +9,7 @@ export const personalInfo = {
   avatar: "/img/main-section/foto-zacky.webp",
   aboutImage: "/img/main-section/foto-about.webp",
   projectsImage: "/img/main-section/foto-project.webp",
-  cvUrl: "/cv.pdf",
+  cvUrl: "https://docs.google.com/document/d/1jSJw_2P2tedOuyxdqa8ON8CdvrwLcygAvcRt3FPrIkE/edit?usp=sharing",
   socials: {
     email: "mailto:zackyalhakim24@gmail.com",
     linkedin: "https://www.linkedin.com/in/zackyth/",
