@@ -23,7 +23,7 @@ export default function Navbar() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-30 px-6 lg:px-12 py-4 transition-all duration-300 bg-[#fafafa]/80 backdrop-blur-md border-b border-zinc-200/50 shadow-sm">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <div className="w-full flex items-center justify-between">
           {/* Left Side: Reserved space for chevron so text never shifts */}
           <Link
             to={isHome ? "/" : backToPath}

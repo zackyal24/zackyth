@@ -291,7 +291,7 @@ export default function Projects() {
                 >
                   <Link to={`/projects/${project.id}`}>
                     <div 
-                      className="group relative rounded-2xl overflow-hidden aspect-video cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]"
+                      className="group relative rounded-2xl overflow-hidden aspect-[4/3] md:aspect-video cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02]"
                       onMouseEnter={(e) => {
                         const video = e.currentTarget.querySelector('video');
                         if (video) {
@@ -348,7 +348,7 @@ export default function Projects() {
                       )}
 
                       {/* Dark overlay with text content */}
-                      <div className="absolute inset-0 bg-[#1e2330]/95 backdrop-blur-sm flex flex-col items-center justify-center text-center p-6 sm:p-8 transition-opacity duration-500 group-hover:opacity-0 z-10">
+                      <div className="absolute inset-0 bg-[#1e2330]/95 backdrop-blur-sm flex flex-col items-center justify-center text-center p-4 pt-12 sm:p-8 transition-opacity duration-500 group-hover:opacity-0 z-10">
 
                         {/* Year badge */}
                         <span className="absolute top-4 left-4 px-3 py-1 bg-white/15 text-white text-xs font-bold rounded-md border border-white/10">
@@ -361,7 +361,7 @@ export default function Projects() {
                         </h3>
 
                         {/* Description */}
-                        <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-5 line-clamp-3 max-w-sm">
+                        <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-4 sm:mb-5 line-clamp-2 sm:line-clamp-3 max-w-sm">
                           {project.shortDesc}
                         </p>
 
