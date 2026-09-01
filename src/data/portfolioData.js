@@ -356,14 +356,17 @@ export const projectsList = [
     title: "Laziiza Choco",
     category: "Web Development",
     shortDesc: "A responsive landing page for Laziiza Choco to showcase products and facilitate WhatsApp pre-orders.",
-    previewMedia: "https://images.unsplash.com/photo-1511381939415-e440c9a18d0d?q=80&w=800&auto=format&fit=crop",
+    previewMedia: "/img/projects/laziiza/img1.webp",
+    previewVideo: "/img/projects/laziiza/preview.mp4",
     technologies: ["React", "Tailwind", "Vite"],
     year: "2026",
-    liveUrl: "#",
-    githubUrl: "#",
+    liveUrl: "https://laziza-choco.vercel.app/",
+    githubUrl: "https://github.com/zackyal24/laziza-choco",
     fullDescription: "Developed a responsive landing page for Laziiza Choco to provide an online presence for the brand and make its products easier to discover. The website presents the brand, product offerings such as Tempe Crunch and Veggie Crunch, product highlights, and the pre-order process in a simple and engaging layout.\n\nThe landing page was designed to help potential customers understand the products and ordering process, with a direct call-to-action that allows customers to place orders through WhatsApp. The project focuses on creating a clear product presentation and a simple path from discovering the product to making an order.",
     documentationPhotos: [
-      "https://images.unsplash.com/photo-1511381939415-e440c9a18d0d?q=80&w=1200&auto=format&fit=crop"
+      "/img/projects/laziiza/img1.webp",
+      "/img/projects/laziiza/img2.webp",
+      "/img/projects/laziiza/img3.webp"
     ]
   }
 ];
